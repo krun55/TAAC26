@@ -79,7 +79,7 @@ python3 -u train.py \
 - `--use_user_activity_dense`
 - `--no_user_activity_dense`
 
-提分：____
+提分：0.012
 
 ### 3. FID 62-66 稀疏/Dense 配对建模
 
@@ -96,7 +96,7 @@ python3 -u train.py \
 
 - `--use_pair_62_66`
 
-提分：____
+提分：0.06
 
 ### 4. RankMixer NS Tokenizer 默认化
 
@@ -165,7 +165,7 @@ baseline 已有 RankMixer 入口，当前版本将其作为默认运行方案继
 - `--combined_autoint_gate_init`
 - `--combined_autoint_position`
 
-提分：____
+提分：NSTokenSEGate和NSSelfAttention一起0.002
 
 ### 7. Target-Aware Attention
 
@@ -181,7 +181,7 @@ baseline 已有 RankMixer 入口，当前版本将其作为默认运行方案继
 
 - `--use_target_attention`
 
-提分：____
+提分：负收益
 
 ### 8. Head Cross Network
 
@@ -198,7 +198,7 @@ baseline 已有 RankMixer 入口，当前版本将其作为默认运行方案继
 - `--head_cross_layers`
 - `--head_cross_init_scale`
 
-提分：____
+提分：负收益
 
 ### 9. Item Dense 支持
 
@@ -211,7 +211,7 @@ baseline 中 `item_dense_feats` 固定为空；当前版本支持从 schema 和 
 - batch 输出真实 `item_dense_feats`。
 - 可供 dense cross token 等模块使用。
 
-提分：____
+提分：负收益
 
 ### 10. 训练稳定性与效率
 
@@ -234,7 +234,7 @@ baseline 中 `item_dense_feats` 固定为空；当前版本支持从 schema 和 
 - `--ema_decay`
 - `--ema_start_epoch`
 
-提分：____
+提分：ema实现错了，收益很小，万分位
 
 ### 11. 推理一致性与配置校验
 
@@ -249,24 +249,9 @@ baseline 中 `item_dense_feats` 固定为空；当前版本支持从 schema 和 
 - 支持旧 checkpoint 中 `ns_self_attn` 到 `ns_feature_cross` 的 key remap。
 - 推理 dtype 目前限制为 `float32`。
 
-提分：____
+提分：不计入
 
-## 提分记录
 
-| 特性 | 开关/配置 | 线下 AUC 提升 | 线上 AUC 提升 | 备注 |
-| --- | --- | --- | --- | --- |
-| 绝对时间特征 | `--use_abs_time_emb --time_zone_offset_hours 8` | ____ | ____ | ____ |
-| 用户活跃度 dense | `--use_user_activity_dense` | ____ | ____ | ____ |
-| FID 62-66 配对 | `--use_pair_62_66` | ____ | ____ | ____ |
-| RankMixer 默认配置 | `rankmixer, user_ns=5, item_ns=2, num_queries=2` | ____ | ____ | ____ |
-| Dense Cross Token | `--use_dense_cross_token` | ____ | ____ | ____ |
-| NS SE Gate | `--use_ns_se_gate` | ____ | ____ | ____ |
-| NS Self-Attention / AutoInt | `--use_ns_self_attn` | ____ | ____ | ____ |
-| Combined AutoInt | `--use_combined_autoint` | ____ | ____ | ____ |
-| Target-Aware Attention | `--use_target_attention` | ____ | ____ | ____ |
-| Head Cross Network | `--head_cross_layers` | ____ | ____ | ____ |
-| bf16 训练 + float32 推理 | `--use_bf16_train --inference_dtype float32` | ____ | ____ | ____ |
-| EMA | `--ema_decay --ema_start_epoch` | ____ | ____ | ____ |
 
 ## Diff 复现方式
 
