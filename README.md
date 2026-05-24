@@ -37,7 +37,7 @@ python3 -u train.py \
   --inference_dtype float32
 ```
 
-提分：____
+提分：从0.811到0.8309
 
 ## 特性 Diff
 
@@ -60,7 +60,7 @@ python3 -u train.py \
 - `--user_abs_time_missing_as_padding`
 - `--add_user_time_to_dense_tok`
 
-提分：____
+提分：0.012
 
 ### 2. 用户活跃度 Dense 特征
 
@@ -79,7 +79,7 @@ python3 -u train.py \
 - `--use_user_activity_dense`
 - `--no_user_activity_dense`
 
-提分：0.012
+提分：0.0005
 
 ### 3. FID 62-66 稀疏/Dense 配对建模
 
@@ -115,7 +115,7 @@ baseline 已有 RankMixer 入口，当前版本将其作为默认运行方案继
 - `--randomized_split`
 - `--randomized_split_seed`
 
-提分：____
+提分：_=负收益
 
 ### 5. Dense Cross Token
 
@@ -136,7 +136,7 @@ baseline 已有 RankMixer 入口，当前版本将其作为默认运行方案继
 - `--dense_cross_item_fids`
 - `--dense_cross_dim`
 
-提分：____
+提分：掉大分
 
 ### 6. NS Token 交互增强
 
